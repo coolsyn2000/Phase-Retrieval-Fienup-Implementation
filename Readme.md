@@ -5,7 +5,8 @@
 
 Fienup型相位恢复算法根据其空间域约束的不同也分为不同的算法，比较常见的有Error-Reduction（ER）和Hybrid-Input-Output（HIO）算法。ER算法的物空间约束如式所示，其中$\gamma$表示物空间的先验物理约束，即物体空间的图像需要为非负而且为实数。对于不满足该物理约束的部分的像素置零，满足约束的部分得到保留。
 
-Update strategy of Error-Reduction algorithm
+<b>Update strategy of Error-Reduction algorithm</b>
+
 $$
 	O'_j(x,y)=
 	\left\{
@@ -16,7 +17,7 @@ $$
 	\right.
 $$
 
-Update strategy of Hybrid-Input-Output algorithm
+<b>Update strategy of Hybrid-Input-Output algorithm</b>
 
 $$
 	O\prime_j(x,y)=
@@ -27,6 +28,7 @@ $$
 	\end{array}
 	\right.
 $$
+
 ## 运行
 * Python
 	```
