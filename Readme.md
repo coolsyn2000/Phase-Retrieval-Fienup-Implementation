@@ -11,28 +11,11 @@ Fienup-type phase recovery algorithms are also divided into different algorithms
 
 <b>Update strategy of Error-Reduction algorithm</b>
 
-$
-	O'_j(x,y)=
-	\left\{
-	\begin{array}{lr}
-	O_j(x,y), &  (x,y)\in \gamma \\
-		0, & (x,y)\notin \gamma\\
-	\end{array}
-	\right.
-$
+![](./asset/er_constraints.svg)
 
 <b>Update strategy of Hybrid-Input-Output algorithm</b>
 
-$
-	O\prime_j(x,y)=
-	\left\{
-	\begin{array}{lr}
-		O_j(x,y), &  (x,y)\in \gamma \\
-		O\prime_{j-1}(x,y)-\beta O_j(x,y), & (x,y)\notin \gamma\\
-	\end{array}
-	\right.
-$
-
+![](./asset/hio_constraints.svg)
 ## Run
 ### Python
 
