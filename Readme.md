@@ -1,13 +1,17 @@
-# Fienup型相位恢复算法（Python/Matlab）
+# Phase Retrieval Algorithm (Python/Matlab)
 
-## 算法原理
-相位恢复算法：输入二维灰度图像的傅里叶变换后的振幅，在不需要相位的情况下，通过<b>重投影和域约束的方法</b>实现图像重建。相位恢复算法广泛应用于`相干衍射成像`、`强度干涉成像`、`散射成像`等领域。
+Matlab/Python Implementation of simple iterative optimization phase retrieval algorithm of Fienup type (HIO/ER).
 
-Fienup型相位恢复算法根据其空间域约束的不同也分为不同的算法，比较常见的有Error-Reduction（ER）和Hybrid-Input-Output（HIO）算法。ER算法的物空间约束如式所示，其中$\gamma$表示物空间的先验物理约束，即物体空间的图像需要为非负而且为实数。对于不满足该物理约束的部分的像素置零，满足约束的部分得到保留。
+* GPU accelerating is applied under cupy with 10x speed increase , if installed. 
+
+## Algorithm
+Phase recovery algorithm: Input the Fourier transformed amplitude of the two-dimensional grayscale image, and achieve image reconstruction through <b>reprojection and domain constraints</b> without the need for phase. Phase recovery algorithms are widely used in `coherent diffraction imaging`, `intensity interference imaging`, `scattering imaging` and other fields.
+
+Fienup-type phase recovery algorithms are also divided into different algorithms according to their spatial domain constraints. The more common ones are Error-Reduction (ER) and Hybrid-Input-Output (HIO) algorithms. The object space constraints of the ER algorithm are as shown in the formula, where $\gamma$ represents the prior physical constraints of the object space, that is, the image of the object space needs to be non-negative and real. Pixels that do not satisfy the physical constraint are set to zero, and pixels that satisfy the constraint are retained.
 
 <b>Update strategy of Error-Reduction algorithm</b>
 
-$$
+$
 	O'_j(x,y)=
 	\left\{
 	\begin{array}{lr}
@@ -15,11 +19,11 @@ $$
 		0, & (x,y)\notin \gamma\\
 	\end{array}
 	\right.
-$$
+$
 
 <b>Update strategy of Hybrid-Input-Output algorithm</b>
 
-$$
+$
 	O\prime_j(x,y)=
 	\left\{
 	\begin{array}{lr}
@@ -27,34 +31,38 @@ $$
 		O\prime_{j-1}(x,y)-\beta O_j(x,y), & (x,y)\notin \gamma\\
 	\end{array}
 	\right.
-$$
+$
 
-## 运行
-* Python
-	```
-	python example_oversampling.py
-	```
-* Matlab
-	
-	Matlab中直接运行Run_Phase_Retrieval.m
+## Run
+### Python
 
+* Phase retrieval with HIO oversample ×1,×2 and ×4 :
 
-## 结果
+	`python test_phase_retrieval_oversample.py` 
 
-* <center><b>图像padding对重建结果的影响(example_oversampling.py)</b></center>
+* Benchmark of between `Numpy` and `cupy`:
 
-![](./asset/result_oversampling.png)
+	`python benchmark.py`
 
 
-* <center><b>算法收敛(example_convergence.py)</b></center>
+### Matlab
 
-![](./asset/result_convergence.png)
+* Run script `Run_Phase_Retrieval.m` in Matlab
 
 
-* <center><b>Matlab实现(Run_Phase_Retrieval.m)</b></center>
+## Result
+* Oversample ratio ×1, ×2 and ×4
+
+![](./asset/result_oversampling_x1.png)
+
+![](./asset/result_oversampling_x2.png)
+
+![](./asset/result_oversampling_x4.png)
+
+* Run in Matlab
 
 ![](./asset/result_matlab.png)
 
 
-## 参考
+## Link
 https://github.com/tuelwer/phase-retrieval
