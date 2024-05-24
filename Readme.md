@@ -48,4 +48,6 @@ Fienup-type phase recovery algorithms are also divided into different algorithms
 
 
 ## Link
-https://github.com/tuelwer/phase-retrieval
+* [other vison of phase retrieval algorithm](https://github.com/tuelwer/phase-retrieval)
+
+* [phase retrieval via neural network](https://github.com/coolsyn2000/NeuralNetwork-PhaseRetrieval)
